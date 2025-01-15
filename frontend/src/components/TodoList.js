@@ -9,7 +9,7 @@ function TodoList() {
     // Fetch the list of todos
     const refreshTodos = async () => {
         try {
-            const response = await axios.get('http://localhost:5001/api/todos');
+            const response = await axios.get('https://todo-reminder-app-uffc.onrender.com/api/todos');
             setTodos(response.data);
         } catch (err) {
             console.error('Error fetching tasks', err);
@@ -19,7 +19,7 @@ function TodoList() {
     // Handle task delete
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5001/api/todos/delete/${id}`);
+            await axios.delete(`https://todo-reminder-app-uffc.onrender.com/api/todos/delete/${id}`);
             refreshTodos();
         } catch (err) {
             console.error('Error deleting task', err);
@@ -29,7 +29,7 @@ function TodoList() {
     // Handle delete all tasks
     const handleDeleteAll = async () => {
         try {
-            await axios.delete('http://localhost:5001/api/todos/deleteAll');
+            await axios.delete('https://todo-reminder-app-uffc.onrender.com/api/todos/deleteAll');
             refreshTodos();
         } catch (err) {
             console.error('Error deleting all tasks', err);
@@ -40,7 +40,7 @@ function TodoList() {
     const handleEdit = async (id) => {
         if (editTask.trim()) {
             try {
-                await axios.put(`http://localhost:5001/api/todos/edit/${id}`, { task: editTask });
+                await axios.put(`https://todo-reminder-app-uffc.onrender.com/api/todos/edit/${id}`, { task: editTask });
                 setEditTask('');
                 setEditId(null);
                 refreshTodos();

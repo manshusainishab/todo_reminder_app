@@ -9,9 +9,9 @@ function TodoForm({ refreshTodos }) {
         if (!task) return;
 
         try {
-            await axios.post('http://localhost:5001/api/todos/add', { task });
+            await axios.post('https://todo-reminder-app-uffc.onrender.com/api/todos/add', { task });
             setTask('');
-            refreshTodos(); // Refresh the list after adding a task
+            refreshTodos();
         } catch (err) {
             console.error('Error adding task', err);
         }
